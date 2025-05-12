@@ -1,18 +1,5 @@
-import heapq
-
 class Solution:
-    def findAnswer(self, n: int, edges: list[list[int]]) -> list[bool]:
-        """
-        Determines which edges are part of any shortest path from node 0 to node n-1.
-        
-        Args:
-            n (int): Number of nodes in the graph
-            edges (list[list[int]]): List of edges in format [u, v, weight]
-            
-        Returns:
-            list[bool]: For each edge, True if it's part of any shortest path, False otherwise
-        """
-        
+    def findAnswer(self, n: int, edges: list[list[int]]) -> list[bool]: 
         # if there are no nodes or edges, return empty list
         if n == 0 or not edges:
             return []
@@ -67,7 +54,7 @@ class Solution:
         # ---------------------------
         # 4. check each edge
         # ---------------------------
-        shortest_path_length = start_distances[n-1]
+        shortest_path_length = start_distances[n-1] # that's the value to reach the 'n-1' node
         answer = []
         
         for u, v, w in edges:
@@ -76,6 +63,6 @@ class Solution:
             backward = start_distances[v] + w + end_distances[u]
             
             # edge is part of shortest path if either direction matches
-            answer.append(forward == shortest_path_length or backward == shortest_path_length)
+            answer.append(forward == shortest_path_length or backward == shortest_path_length) # returns true if the edge is part of the shortest path
         
         return answer

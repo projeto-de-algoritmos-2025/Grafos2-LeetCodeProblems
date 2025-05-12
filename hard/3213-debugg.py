@@ -2,12 +2,8 @@ import heapq
 
 class Solution:
     def findAnswer(self, n: int, edges: list[list[int]]) -> list[bool]:
-        print(f"\n=== INITIALIZING PROBLEM ===")
-        print(f"Nodes: {n}, Edges: {edges}")
-
         # Edge case handling
         if n == 0 or not edges:
-            print("! Edge case: Empty input")
             return []
         
         # ---------------------------
@@ -39,21 +35,21 @@ class Solution:
                     continue
                     
                 visited[node] = True
-                print(f"\nProcessing node {node} (current distance: {dist})")
+                print(f"\n> Processing node {node} (current distance: {dist})")
                 
                 for neighbor, weight in graph[node]:
                     old_dist = distances[neighbor]
                     new_dist = dist + weight
                     
-                    print(f"  Checking neighbor {neighbor} (weight {weight})")
-                    print(f"  Current best distance to {neighbor}: {old_dist}")
-                    print(f"  Potential new distance: {new_dist}")
+                    print(f"  \nEvaluating neighbor {neighbor} (weight {weight})")
+                    print(f"  New cost: {new_dist} vs current: {old_dist}")
 
                     if new_dist < old_dist:
                         distances[neighbor] = new_dist
                         heapq.heappush(heap, (new_dist, neighbor))
-                        print(f"  !! Updated distance to node {neighbor} from {old_dist} to {new_dist}")
-                        print(f"  Pushed ({new_dist}, {neighbor}) to heap")
+                        print(f"  NEW shortest path found! Updating:")
+                        print(f"    From {old_dist} to {new_dist}")
+                        print(f"    Pushed ({new_dist}, {neighbor}) to heap")
                         print(f"  Current heap state: {heap}")
                     else:
                         print(f"  No improvement for {neighbor} (keep {old_dist})")
@@ -75,8 +71,10 @@ class Solution:
         # 4. Check each edge
         # ---------------------------
         print("\n=== CHECKING EDGES ===")
-        shortest_path_length = start_distances[n-1]
+        shortest_path_length = start_distances[n-1] # or end_distances[0]
         print(f"Shortest path length: {shortest_path_length}")
+        print(f"Dijkstra from '0': {start_distances}")
+        print(f"Dijkstra from 'n-1': {end_distances}")
         answer = []
 
         for i, (u, v, w) in enumerate(edges):
@@ -84,8 +82,15 @@ class Solution:
             backward = start_distances[v] + w + end_distances[u]
             
             print(f"\nEdge {i}: {u}-{v} (weight {w})")
-            print(f"Forward path: {start_distances[u]} + {w} + {end_distances[v]} = {forward}")
-            print(f"Backward path: {start_distances[v]} + {w} + {end_distances[u]} = {backward}")
+            print(f"  Forward")
+            print(f"    From node (0) <-> ({u}) = {start_distances[u]}")
+            print(f"    From node ({n-1}) <-> ({v}) = {end_distances[v]}")
+            print(f"    Forward path: {start_distances[u]} + {w} + {end_distances[v]} = {forward}")
+            print(f"  Backward")
+            print(f"    From node (0) <-> ({v}) = {start_distances[v]}")
+            print(f"    From node ({n-1}) <-> ({u}) = {end_distances[u]}")
+            backward = start_distances[v] + w + end_distances[u]
+            print(f"    Backward path: {start_distances[v]} + {w} + {end_distances[u]} = {backward}")
             
             is_valid = forward == shortest_path_length or backward == shortest_path_length
             print(f"Valid? {'YES' if is_valid else 'NO'}")
