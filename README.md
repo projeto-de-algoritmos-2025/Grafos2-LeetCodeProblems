@@ -40,9 +40,9 @@ Foram escolhidos dois exercícios da plataforma online [LeetCode](https://leetco
 
 [![Apresentação João Marcos](https://img.youtube.com/vi/DTgUsEhf6FU/0.jpg)](https://youtu.be/DTgUsEhf6FU)
 
-![Apresentação Christopher parte 1](/assets/Video%201%20Christopher%20GRAFO%202.mp4)
+[![Apresentação Christopher parte 1](https://img.youtube.com/vi/cUd99OB4JE4/0.jpg)](https://youtu.be/cUd99OB4JE4)
 
-![Apresentação Christopher parte 2](/assets/Video%202%20Christopher%20GRAFO%202.mp4)
+[![Apresentação Christopher parte 2](https://img.youtube.com/vi/itvRQKy7Ciw/0.jpg)](https://youtu.be/itvRQKy7Ciw)
 
 ## Linguagens
 Python e C++
