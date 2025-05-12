@@ -38,7 +38,7 @@ Foram escolhidos dois exercícios da plataforma online [LeetCode](https://leetco
 
 ## Vídeo Explicativo
 
-![Apresentação João Marcos](/assets/Apresentação%20João%20Marcos%20Grafos%202.mp4)
+[![Apresentação João Marcos](https://img.youtube.com/vi/DTgUsEhf6FU/0.jpg)](https://youtu.be/DTgUsEhf6FU)
 
 ![Apresentação Christopher parte 1](/assets/Video%201%20Christopher%20GRAFO%202.mp4)
 
