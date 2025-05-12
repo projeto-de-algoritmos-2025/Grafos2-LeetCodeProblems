@@ -53,7 +53,7 @@ class Solution:
                         print(f"  Current heap state: {heap}")
                     else:
                         print(f"  No improvement for {neighbor} (keep {old_dist})")
-            print("\n                     Nodes: 0  1  2  3  4  5")
+            print("\n                    Nodes: 0  1  2  3  4  5")
             print(f"Final distances from {name}: {distances}")
             return distances
 
